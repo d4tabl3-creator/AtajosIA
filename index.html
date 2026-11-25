@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escondidillas IA · Catálogo de atajos IA</title>
+<meta name="description" content="Catálogo de atajos, comandos y códigos para inteligencia artificial.">
+<meta name="theme-color" content="#14332f">
+<meta property="og:title" content="Escondidillas IA">
+<meta property="og:description" content="Catálogo de atajos, comandos y códigos para inteligencia artificial.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script>
+  try {
+    var t = localStorage.getItem("atajos.theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="row">
+      <div class="minw">
+        <p class="eyebrow">Catálogo de atajos IA</p>
+        <h1>Escondidillas IA</h1>
+      </div>
+      <button type="button" id="theme" class="btn small">Auto</button>
+    </div>
+    <p class="muted s" id="counts">Abriendo el catálogo…</p>
+    <form role="search" onsubmit="return false">
+      <label class="sr" for="q">Buscar</label>
+      <input id="q" type="search" enterkeyhint="search" placeholder="Buscar: explicar, verificar, /plan…" autocomplete="off">
+    </form>
+  </header>
+
+  <p class="muted s mt3">Verde: comando real de una app. Ámbar: instrucción para cualquier chatbot. Naranja: no verificado, puede no hacer nada.</p>
+
+  <div class="chips mt3" id="intents" role="toolbar" aria-label="Filtrar por intención"></div>
+  <div class="chips mt2" id="levels" role="toolbar" aria-label="Filtrar por nivel"></div>
+
+  <div class="row mt2 gap">
+    <label class="sr" for="cat">Categoría</label>
+    <select id="cat"><option value="">Todas las categorías</option></select>
+    <button type="button" id="clear" class="btn">Limpiar</button>
+  </div>
+
+  <p class="muted s mt4" id="status" aria-live="polite">Cargando fichas…</p>
+  <div id="error"></div>
+  <div class="grid mt3" id="cards"></div>
+  <div id="empty"></div>
+  <button type="button" id="more" class="btn primary big mt4" hidden>Ver más fichas</button>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
